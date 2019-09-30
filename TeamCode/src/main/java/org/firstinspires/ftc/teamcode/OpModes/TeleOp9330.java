@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Hardware9330;
+import org.firstinspires.ftc.teamcode.Subsystems.Drive9330;
 import org.firstinspires.ftc.teamcode.Subsystems.Grabber9330;
 
 @TeleOp(name = "TeleOp9330", group = "Opmode")
@@ -12,6 +13,7 @@ public class TeleOp9330 extends OpMode {
 
     Hardware9330 robot9330 = new Hardware9330();
     Grabber9330 grabber9330;
+    Drive9330 drive;
 
     private boolean isAHeld = false;
 
@@ -20,6 +22,7 @@ public class TeleOp9330 extends OpMode {
     public void init() {
         robot9330.init(hardwareMap);
         grabber9330 = new Grabber9330(robot9330);
+        drive = new Drive9330(robot9330);
     }
 
     @Override
@@ -35,6 +38,8 @@ public class TeleOp9330 extends OpMode {
             isAHeld = false;
 
         }
+
+        drive.spinEverythingWow(gamepad2.left_stick_y);
 
     }
 }

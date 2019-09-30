@@ -25,6 +25,19 @@ public class Hardware9330 {
         // Define and Initialize Motors
         grabber = hwMap.servo.get("Grabber");
 
+        rightFront = hwMap.dcMotor.get("rightFront");
+        leftFront = hwMap.dcMotor.get("leftFront");
+
+        rightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //rightFront.setDirection(DcMotor.Direction.REVERSE);
+        leftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        rightBack = hwMap.dcMotor.get("rightBack");
+        leftBack = hwMap.dcMotor.get("leftBack");
+
+        rightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //rightBack.setDirection(DcMotor.Direction.REVERSE);
+        leftBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
     }
