@@ -25,18 +25,18 @@ public class Drive9330 {
     }
 
     public void driveForward(float power){
-        hwMap.rightFront.setPower(power);
-        hwMap.leftFront.setPower(-power);
-        hwMap.rightBack.setPower(power);
-        hwMap.leftBack.setPower(-power);
-    }
-
-    public void driveBackward(float power){
         hwMap.rightFront.setPower(-power);
         hwMap.leftFront.setPower(power);
         hwMap.rightBack.setPower(-power);
         hwMap.leftBack.setPower(power);
     }
+
+//    public void driveBackward(float power){
+//        hwMap.rightFront.setPower(-power);
+//        hwMap.leftFront.setPower(power);
+//        hwMap.rightBack.setPower(-power);
+//        hwMap.leftBack.setPower(power);
+//    }
 
     public void driveRight(float power){
         hwMap.rightFront.setPower(-power);
@@ -45,12 +45,12 @@ public class Drive9330 {
         hwMap.leftBack.setPower(power);
     }
 
-    public void driveLeft(float power){
-        hwMap.rightFront.setPower(power);
-        hwMap.leftFront.setPower(power);
-        hwMap.rightBack.setPower(-power);
-        hwMap.leftBack.setPower(-power);
-    }
+//    public void driveLeft(float power){
+//        hwMap.rightFront.setPower(power);
+//        hwMap.leftFront.setPower(power);
+//        hwMap.rightBack.setPower(-power);
+//        hwMap.leftBack.setPower(-power);
+//    }
 
     public void driveTopRight(float power){
         hwMap.leftFront.setPower(power);
