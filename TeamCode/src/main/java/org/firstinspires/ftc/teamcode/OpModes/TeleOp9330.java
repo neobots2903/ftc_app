@@ -45,32 +45,32 @@ public class TeleOp9330 extends OpMode {
         float xPower = gamepad1.left_stick_x;
         float averagePower = (Math.abs(gamepad1.left_stick_y) + Math.abs(gamepad1.left_stick_x))/2;
 
-        if (yPower > 0 && xPower == 0) {
+        if (yPower != 0 && xPower == 0) {
             drive.driveForward(yPower);
-        } else if (yPower < 0 && xPower == 0) {
-            drive.driveBackward(yPower);
-        }
-
-        if (xPower > 0 && yPower == 0){
+        } else if (xPower != 0 && yPower == 0){
             drive.driveRight(xPower);
-        } else if (xPower < 0 && yPower == 0){
-            drive.driveLeft(xPower);
-        }
-
-        if (yPower > 0 && xPower > 0) {
+        } else if (yPower > 0 && xPower > 0) {
+            telemetry.addData("Program: ", "top right");
             drive.driveTopRight(averagePower);
         } else if (yPower < 0 && xPower < 0){
+            telemetry.addData("Program: ", "bottom left")
             drive.driveBottomLeft(averagePower);
-        }
-
-        if (yPower > 0 && xPower < 0) {
+        } else if (yPower > 0 && xPower < 0) {
+            telemetry.addData("Program: ", "top left")
             drive.driveTopLeft(averagePower);
         } else if (yPower < 0 && xPower > 0){
+            telemetry.addData("Program: ", "bottom right")
             drive.driveBottomRight(averagePower);
         }
 
-        drive.turnClockwise(gamepad1.dpad_right ? 1 : 0);
-        drive.turnCounterClockwise(gamepad1.dpad_left ? 1 : 0);
+        drive.turnClockwise(gamepad1.dpad_left ? 1 : 0);
+        drive.turnCounterClockwise(gamepad1.dpad_right ? 1 : 0);
+
+
+        drive.testLeftFront(gamepad1.x ? 1 : 0);  //left front
+        drive.testRightFront(gamepad1.y ? 1 : 0); // right front
+        drive.testLeftBack(gamepad1.a ? 1 : 0); // left back
+        drive.testRightBack(gamepad1.b ? 1 : 0); //right back
 
     }
 }
