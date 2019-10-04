@@ -53,13 +53,13 @@ public class TeleOp9330 extends OpMode {
             telemetry.addData("Program: ", "top right");
             drive.driveTopRight(averagePower);
         } else if (yPower < 0 && xPower < 0){
-            telemetry.addData("Program: ", "bottom left")
+            telemetry.addData("Program: ", "bottom left");
             drive.driveBottomLeft(averagePower);
         } else if (yPower > 0 && xPower < 0) {
-            telemetry.addData("Program: ", "top left")
+            telemetry.addData("Program: ", "top left");
             drive.driveTopLeft(averagePower);
         } else if (yPower < 0 && xPower > 0){
-            telemetry.addData("Program: ", "bottom right")
+            telemetry.addData("Program: ", "bottom right");
             drive.driveBottomRight(averagePower);
         }
 
