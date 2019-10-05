@@ -22,6 +22,7 @@ public class TeleOp9330 extends OpMode {
     public void init() {
         robot9330.init(hardwareMap);
         grabber9330 = new Grabber9330(robot9330);
+        grabber9330.init();
         drive = new Drive9330(robot9330);
     }
 
@@ -30,6 +31,7 @@ public class TeleOp9330 extends OpMode {
 
         if(gamepad2.a && !isAHeld){
 
+            telemetry.addData("Program: ", "A is tapped")
             grabber9330.toggle();
             isAHeld = true;
 
