@@ -7,6 +7,7 @@ import org.firstinspires.ftc.teamcode.Hardware9330;
 import org.firstinspires.ftc.teamcode.Subsystems.Drive9330;
 import org.firstinspires.ftc.teamcode.Subsystems.Grabber9330;
 import org.firstinspires.ftc.teamcode.Subsystems.Intake9330;
+import org.firstinspires.ftc.teamcode.Subsystems.TeleskopArm9330;
 
 @TeleOp(name = "TeleOp9330", group = "Opmode")
 
@@ -16,6 +17,7 @@ public class TeleOp9330 extends OpMode {
     Grabber9330 grabber;
     Drive9330 drive;
     Intake9330 intake;
+    TeleskopArm9330 teleskop;
 
     private boolean isAHeld = false;
 
@@ -27,6 +29,7 @@ public class TeleOp9330 extends OpMode {
         grabber.init();
         drive = new Drive9330(robot9330);
         intake = new Intake9330(robot9330);
+        teleskop = new TeleskopArm9330(robot9330);
     }
 
     @Override
@@ -80,6 +83,8 @@ public class TeleOp9330 extends OpMode {
 
 
         intake.takeIn(gamepad2.left_stick_y);
+
+        teleskop.teleskopArm(gamepad2.right_stick_y);
 
     }
 }
