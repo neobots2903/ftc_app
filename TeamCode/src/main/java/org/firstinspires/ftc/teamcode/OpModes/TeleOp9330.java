@@ -29,17 +29,24 @@ public class TeleOp9330 extends OpMode {
     @Override
     public void loop() {
 
-        if(gamepad2.a && !isAHeld){
-
-            telemetry.addData("Program: ", "A is tapped");
-            grabber9330.toggle();
-            isAHeld = true;
-
-        } else if (!gamepad2.a){
-
-            isAHeld = false;
-
+//        if(gamepad2.a && !isAHeld){
+//
+//            telemetry.addData("Program: ", "A is tapped");
+//            grabber9330.toggle();
+//            isAHeld = true;
+//
+//        } else if (!gamepad2.a){
+//
+//            isAHeld = false;
+//             }
+        if(gamepad2.a){
+            grabber9330.extend();
         }
+        else if(gamepad2.b){
+            grabber9330.retract();
+        }
+
+
 
         //drive.spinEverythingWow(gamepad2.left_stick_y);
 
@@ -67,12 +74,6 @@ public class TeleOp9330 extends OpMode {
 
         drive.turnClockwise(gamepad1.dpad_left ? 1 : 0);
         drive.turnCounterClockwise(gamepad1.dpad_right ? 1 : 0);
-
-
-        drive.testLeftFront(gamepad1.x ? 1 : 0);  //left front
-        drive.testRightFront(gamepad1.y ? 1 : 0); // right front
-        drive.testLeftBack(gamepad1.a ? 1 : 0); // left back
-        drive.testRightBack(gamepad1.b ? 1 : 0); //right back
 
     }
 }
