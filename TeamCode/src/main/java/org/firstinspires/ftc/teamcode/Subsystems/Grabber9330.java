@@ -4,8 +4,8 @@ import org.firstinspires.ftc.teamcode.Hardware9330;
 
 public class Grabber9330 {
 
-    final double RETRACTED_POS = 0.0;
-    final double EXTENDED_POS = 1.0;
+    final double RETRACTED_POS = 0.12;
+    final double EXTENDED_POS = 0.79;
 
     private Hardware9330 hwMap = null;
 
@@ -39,5 +39,9 @@ public class Grabber9330 {
 
         }
 
+    }
+
+    public void init(){
+        hwMap.grabber.setPosition(0.2);
     }
 }
