@@ -6,14 +6,16 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Hardware9330;
 import org.firstinspires.ftc.teamcode.Subsystems.Drive9330;
 import org.firstinspires.ftc.teamcode.Subsystems.Grabber9330;
+import org.firstinspires.ftc.teamcode.Subsystems.Intake9330;
 
 @TeleOp(name = "TeleOp9330", group = "Opmode")
 
 public class TeleOp9330 extends OpMode {
 
     Hardware9330 robot9330 = new Hardware9330();
-    Grabber9330 grabber9330;
+    Grabber9330 grabber;
     Drive9330 drive;
+    Intake9330 intake;
 
     private boolean isAHeld = false;
 
@@ -21,30 +23,31 @@ public class TeleOp9330 extends OpMode {
     @Override
     public void init() {
         robot9330.init(hardwareMap);
-        grabber9330 = new Grabber9330(robot9330);
-        grabber9330.init();
+        grabber = new Grabber9330(robot9330);
+        grabber.init();
         drive = new Drive9330(robot9330);
+        intake = new Intake9330(robot9330);
     }
 
     @Override
     public void loop() {
 
-//        if(gamepad2.a && !isAHeld){
-//
-//            telemetry.addData("Program: ", "A is tapped");
-//            grabber9330.toggle();
-//            isAHeld = true;
-//
-//        } else if (!gamepad2.a){
-//
-//            isAHeld = false;
-//             }
-        if(gamepad2.a){
-            grabber9330.extend();
-        }
-        else if(gamepad2.b){
-            grabber9330.retract();
-        }
+        if(gamepad2.a && !isAHeld){
+
+            telemetry.addData("Program: ", "A is tapped");
+            grabber.toggle();
+            isAHeld = true;
+
+        } else if (!gamepad2.a){
+
+            isAHeld = false;
+             }
+//        if(gamepad2.a){
+//            grabber9330.extend();
+//        }
+//        else if(gamepad2.b){
+//            grabber9330.retract();
+//        }
 
 
 
@@ -74,6 +77,9 @@ public class TeleOp9330 extends OpMode {
 
         drive.turnClockwise(gamepad1.dpad_left ? 1 : 0);
         drive.turnCounterClockwise(gamepad1.dpad_right ? 1 : 0);
+
+
+        intake.takeIn(gamepad2.left_stick_y);
 
     }
 }
