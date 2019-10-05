@@ -31,7 +31,7 @@ public class TeleOp9330 extends OpMode {
 
         if(gamepad2.a && !isAHeld){
 
-            telemetry.addData("Program: ", "A is tapped")
+            telemetry.addData("Program: ", "A is tapped");
             grabber9330.toggle();
             isAHeld = true;
 
