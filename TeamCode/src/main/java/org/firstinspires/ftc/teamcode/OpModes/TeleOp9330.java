@@ -41,7 +41,7 @@ public class TeleOp9330 extends OpMode {
 
         //drive.spinEverythingWow(gamepad2.left_stick_y);
 
-        float yPower = gamepad1.left_stick_y;
+        float yPower = -gamepad1.left_stick_y;
         float xPower = gamepad1.left_stick_x;
         float averagePower = (Math.abs(gamepad1.left_stick_y) + Math.abs(gamepad1.left_stick_x))/2;
 
