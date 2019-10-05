@@ -64,12 +64,12 @@ public class Drive9330 {
 
     public void driveTopRight(float power){
         hwMap.leftFront.setPower(power);
-        hwMap.rightBack.setPower(power);
+        hwMap.rightBack.setPower(-power);
     }
 
     public void driveTopLeft(float power){
         hwMap.rightFront.setPower(power);
-        hwMap.leftBack.setPower(power);
+        hwMap.leftBack.setPower(-power);
     }
 
     public void testRightFront(float power){
