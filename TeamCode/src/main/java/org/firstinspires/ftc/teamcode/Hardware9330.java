@@ -11,6 +11,9 @@ public class Hardware9330 {
     public static DcMotor leftFront;
     public static DcMotor rightBack;
     public static DcMotor leftBack;
+    public static DcMotor intakeLeft;
+    public static DcMotor intakeRight;
+    public static DcMotor teleskop;
     public static Servo grabber;
 
     public Hardware9330(){
@@ -38,6 +41,11 @@ public class Hardware9330 {
         rightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         //rightBack.setDirection(DcMotor.Direction.REVERSE);
         leftBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        intakeLeft = hwMap.dcMotor.get("intakeLeft");
+        intakeRight = hwMap.dcMotor.get("intakeRight");
+
+        teleskop = hwMap.dcMotor.get("teleskop");
 
 
     }
